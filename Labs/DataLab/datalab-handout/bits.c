@@ -1,7 +1,7 @@
 /* 
  * CS:APP Data Lab 
  * 
- * <Please put your name and userid here>
+ * <zixiangcode@gmail.com>
  * 
  * bits.c - Source file with your solutions to the Lab.
  *          This is the file you will hand in to your instructor.
@@ -140,7 +140,8 @@ NOTES:
  *   Rating: 1
  */
 int bitXor(int x, int y) {
-  return 2;
+  int result = ~(~(x & ~y) & ~(~x & y));
+  return result;
 }
 /* 
  * tmin - return minimum two's complement integer 
@@ -149,7 +150,7 @@ int bitXor(int x, int y) {
  *   Rating: 1
  */
 int tmin(void) {
-  return 2;
+  return 1 << 31;
 }
 //2
 /*
@@ -160,7 +161,7 @@ int tmin(void) {
  *   Rating: 2
  */
 int isTmax(int x) {
-  return 2;
+  return !(~(x + 1) ^ x) & (!(!(x + 1)));
 }
 /* 
  * allOddBits - return 1 if all odd-numbered bits in word set to 1
@@ -170,7 +171,12 @@ int isTmax(int x) {
  *   Rating: 2
  */
 int allOddBits(int x) {
-  return 2;
+  // int result = !(((x & (x >> 8) & (x >> 16) & (x >> 24)) & 0xaa) ^ 0xaa);
+  // int result = !(~((0x55) | (0x55 << 8) | (0x55 << 16) | (0x55 << 24) | x));
+  int a = x & (x >> 16);
+  int b = a & (a >> 8) & 0xaa;
+  int result = !(b ^ 0xaa);
+  return result;
 }
 /* 
  * negate - return -x 
@@ -180,7 +186,7 @@ int allOddBits(int x) {
  *   Rating: 2
  */
 int negate(int x) {
-  return 2;
+  return ~x + 1;
 }
 //3
 /* 
@@ -193,7 +199,9 @@ int negate(int x) {
  *   Rating: 3
  */
 int isAsciiDigit(int x) {
-  return 2;
+  int Tmin = 1 << 31;
+  int result = !(((x + ~0x30 + 1) & Tmin) | ((~x + 1 + 0x39) & Tmin));
+  return result;
 }
 /* 
  * conditional - same as x ? y : z 
@@ -203,7 +211,9 @@ int isAsciiDigit(int x) {
  *   Rating: 3
  */
 int conditional(int x, int y, int z) {
-  return 2;
+  int mask = ~!x + 1;
+  return (y & ~mask) | (z & mask);
+  // return (((!!x << 31) >> 31) & y) | (((!x << 31) >> 31) & z);
 }
 /* 
  * isLessOrEqual - if x <= y  then return 1, else return 0 
@@ -213,7 +223,11 @@ int conditional(int x, int y, int z) {
  *   Rating: 3
  */
 int isLessOrEqual(int x, int y) {
-  return 2;
+  int sign_x = x >> 31;
+  int sign_y = y >> 31;
+  int equal = (!(sign_x ^ sign_y)) & ((~y + x) >> 31);
+  int notEqual = sign_x & !sign_y;
+  return equal | notEqual;
 }
 //4
 /* 
@@ -225,7 +239,12 @@ int isLessOrEqual(int x, int y) {
  *   Rating: 4 
  */
 int logicalNeg(int x) {
-  return 2;
+  x = x | (x >> 16);
+  x = x | (x >> 8);
+  x = x | (x >> 4);
+  x = x | (x >> 2);
+  x = x | (x >> 1);
+  return (x & 1) ^ 1;
 }
 /* howManyBits - return the minimum number of bits required to represent x in
  *             two's complement
@@ -240,7 +259,21 @@ int logicalNeg(int x) {
  *  Rating: 4
  */
 int howManyBits(int x) {
-  return 0;
+  int sign = x >> 31;
+  int b16 = 0, b8 = 0, b4 = 0, b2 = 0, b1 = 0, b0 = 0;
+  x = (sign & ~x) | (~sign & x);
+  b16 = !!(x >> 16) << 4;
+  x = x >> b16;
+  b8 = !!(x >> 8) << 3;
+  x = x >> b8;
+  b4 = !!(x >> 4) << 2;
+  x = x >> b4;
+  b2 = !!(x >> 2) << 1;
+  x >>= b2;
+  b1 = !!(x >> 1);
+  x >>= b1;
+  b0 = x;
+  return b16 + b8 + b4 + b2 + b1 + b0 + 1;
 }
 //float
 /* 
@@ -255,7 +288,23 @@ int howManyBits(int x) {
  *   Rating: 4
  */
 unsigned float_twice(unsigned uf) {
-  return 2;
+  int exp = (uf >> 23) & 0xff;
+  int sign = uf & (1 << 31);
+  if (exp == 0xff) { // exp = -1 则 2 * f = f
+    return uf;
+  }
+
+  if (exp == 0x0) { // 指数为 0
+    return (uf << 1) | sign;
+  }
+
+  exp = exp + 1; // 别忘了返回的是 2*f，实际上指数 +1 即可
+  if (exp == 0xff) { // Nan or Infinity，参看浮点数笔记
+    return 0x7F800000 | sign;
+  } else {
+    int frac = uf & 0x007fffff;
+    return (frac | exp << 23) | sign;
+  }
 }
 /* 
  * float_i2f - Return bit-level equivalent of expression (float) x
@@ -267,7 +316,35 @@ unsigned float_twice(unsigned uf) {
  *   Rating: 4
  */
 unsigned float_i2f(int x) {
-  return 2;
+  int sign = x >> 31 & 1;
+  int exp = 0, frac = 0, frac_mask = 0, i = 0, delta = 0;
+  if (x == 0) { // 对应浮点数的第二种情况，非规格化值表示 0
+    return 0;
+  } else if (x == 0x80000000) {
+    exp = 158; // Tmin，最高位的值是 31，所以 exp = E + Bias = 31 + 127
+  } else {
+    if (sign != 0) { // 则 x 为负数
+      x = -x;
+    }
+    i = 30;
+    while (!(x >> i)) { // 判断二进制 x 的最高位的位置
+      i--;
+    }
+    exp = i + 127; // exp = E + Bias
+    x = x << (31 - i); // 让 x 最高位对齐到 31 位，也就是符号位后的一位
+    frac_mask = 0x7fffff; // frac 的掩码，限制 23 位精度
+    frac = frac_mask & (x >> 8); // x 右移八位然后与掩码按位与得到尾数部分
+
+    // 判断舍入
+    x = x & 0xff; // 取 x 的低八位，用于舍入操作
+    delta = x > 128 || ((x == 128) && (frac & 1)); // 低八位大于 128(10000000) 或 低八位等于 128 且尾数最低位为 1
+    frac += delta;
+    if (frac >> 23) { // 舍入后尾数溢出
+      frac &= frac_mask;
+      exp += 1;
+    }
+  }
+  return (sign << 31) | (exp << 23) | frac;
 }
 /* 
  * float_f2i - Return bit-level equivalent of expression (int) f
@@ -282,5 +359,24 @@ unsigned float_i2f(int x) {
  *   Rating: 4
  */
 int float_f2i(unsigned uf) {
-  return 2;
+  int exp = (uf >> 23) & 0xff;
+  int sign = uf & (1 << 31);
+  int frac = uf & 0x007fffff;
+  int bias = exp - 127;
+
+  if (exp == 0xff || bias > 30) { // Nan 的情况
+    return 0x80000000;
+  } else if (exp == 0x0 || bias < 0) { // 非规格化，bias < 0 代表值非常小，直接返回 0
+    return 0;
+  }
+  frac = frac | (1 << 23); // 规格化中，尾数高位隐含为 1
+  if (bias > 23) { // 根据偏置值大小调整小数点位置
+    frac = frac << (bias - 23);
+  } else {
+    frac = frac >> (23 - bias);
+  }
+  if (sign != 0) {
+    frac = ~(frac) + 1; // 负数，取反加一，得其补码
+  }
+  return frac;
 }
