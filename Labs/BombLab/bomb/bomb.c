@@ -59,7 +59,7 @@ int main(int argc, char *argv[])
 
     /* You can't call the bomb with more than 1 command line argument. */
     else {
-	printf("Usage: %s [<input_file>]\n", argv[0]);
+	printf("Usage: %s [<input_fi·le>]\n", argv[0]);
 	exit(8);
     }
 
