@@ -3,7 +3,7 @@
  */
 /* $begin hellobug */
 /* WARNING: This code is buggy! */
-#include "csapp.h"
+#include "../include/csapp.h"
 void *thread(void *vargp);
 
 int main() 

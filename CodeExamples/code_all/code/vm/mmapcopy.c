@@ -1,5 +1,5 @@
 /* $begin mmapcopy */
-#include "csapp.h"
+#include "../include/csapp.h"
 
 /* 
  * mmapcopy - uses mmap to copy file fd to stdout 

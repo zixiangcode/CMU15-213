@@ -2,7 +2,7 @@
  * norace.c - fixes the race in race.c
  */
 /* $begin norace */
-#include "csapp.h"
+#include "../include/csapp.h"
 #define N 4
 
 void *thread(void *vargp);

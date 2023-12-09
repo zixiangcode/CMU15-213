@@ -1,5 +1,5 @@
 /* $begin snoozesignal */
-#include "csapp.h"
+#include "../include/csapp.h"
 
 /* SIGINT handler */
 void handler(int sig) 

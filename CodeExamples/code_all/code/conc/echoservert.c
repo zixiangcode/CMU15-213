@@ -2,7 +2,7 @@
  * echoservert.c - A concurrent echo server using threads
  */
 /* $begin echoservertmain */
-#include "csapp.h"
+#include "../include/csapp.h"
 
 void echo(int connfd);
 void *thread(void *vargp);

@@ -1,7 +1,7 @@
 /* 
  * ctime_ts - A thread-safe wrapper for ctime
  */
-#include "csapp.h"
+#include "../include/csapp.h"
 #define MAXSTR 128
 
 static sem_t mutex; /* protects calls to ctime */

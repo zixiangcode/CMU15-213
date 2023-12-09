@@ -2,7 +2,7 @@
  * Readers-writers solution with strong reader priority
 */
 /* $begin rw2 */
-#include "csapp.h"
+#include "../include/csapp.h"
 
 /* Global variables */
 int readcount;      /* Initially = 0 */

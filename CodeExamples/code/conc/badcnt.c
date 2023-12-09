@@ -3,7 +3,7 @@
  */
 /* $begin badcnt */
 /* WARNING: This code is buggy! */
-#include "csapp.h"
+#include "../include/csapp.h"
 
 void *thread(void *vargp);  /* Thread routine prototype */
 
