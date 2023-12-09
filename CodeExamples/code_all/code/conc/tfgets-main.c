@@ -1,5 +1,5 @@
 /* $begin tfgetsmain */
-#include "csapp.h"
+#include "../include/csapp.h"
 
 char *tfgets(char *s, int size, FILE *stream);
 

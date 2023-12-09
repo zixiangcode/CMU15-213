@@ -1,7 +1,7 @@
 /* 
  * Naive readers-writers solution 
 */
-#include "csapp.h"
+#include "../include/csapp.h"
 
 /* $begin reader0 */
 /* Global variable */

@@ -1,4 +1,4 @@
-#include "csapp.h"
+#include "../include/csapp.h"
 
 void heapify(int **binheap, int size, int pos)
 {

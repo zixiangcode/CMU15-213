@@ -1,5 +1,5 @@
 /* $begin waitforsignal */
-#include "csapp.h"
+#include "../include/csapp.h"
 
 volatile sig_atomic_t pid;
 

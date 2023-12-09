@@ -6,7 +6,7 @@
  * Source: Henri Casanova, University of Hawaii
 */
 /* $begin rw3 */
-#include "csapp.h"
+#include "../include/csapp.h"
 
 #define N 10
 

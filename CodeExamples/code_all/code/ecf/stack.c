@@ -3,7 +3,7 @@
  * when a C program begins execution
  */
 /* $begin environ */
-#include "csapp.h"
+#include "../include/csapp.h"
 
 int main(int argc, char **argv, char **envp) 
 {

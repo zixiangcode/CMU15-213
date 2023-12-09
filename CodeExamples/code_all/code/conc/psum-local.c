@@ -3,7 +3,7 @@
  *           a local variable, which it then copies to a distinct
  *           array element
  */
-#include "csapp.h"
+#include "../include/csapp.h"
 #define MAXTHREADS 32    
 
 void *sum_local(void *vargp); /* Thread routine */

@@ -1,5 +1,5 @@
 /* $begin sigintsafe */
-#include "csapp.h"
+#include "../include/csapp.h"
 
 void sigint_handler(int sig) /* Safe SIGINT handler */ 
 {

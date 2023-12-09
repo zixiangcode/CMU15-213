@@ -2,7 +2,7 @@
  * threadunsafe.c - demonstrates that various functions are thread-unsafe
  * because they always return the same address 
  */
-#include "csapp.h"
+#include "../include/csapp.h"
 
 int main() {
     struct tm tm;
