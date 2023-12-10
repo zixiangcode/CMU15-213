@@ -12,7 +12,7 @@
 #include <string.h>
 #include <errno.h>
 
-#include "../include/csapp.h"
+#include "../src/csapp.c"
 #include "memlib.h"
 
 #define MAX_HEAP (20*(1<<20))  /* 20 MB */

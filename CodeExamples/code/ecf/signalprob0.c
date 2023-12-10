@@ -3,7 +3,7 @@
 #include <unistd.h>
 #include <wait.h>
 #include <signal.h>
-#include "../include/csapp.h"
+#include "../src/csapp.c"
 
 /* $begin signalprob0 */
 volatile long counter = 2;

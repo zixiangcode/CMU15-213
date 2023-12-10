@@ -1,5 +1,5 @@
 /* $begin restart */
-#include "../include/csapp.h"
+#include "../src/csapp.c"
 
 sigjmp_buf buf;
 

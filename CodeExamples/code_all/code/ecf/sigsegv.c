@@ -1,4 +1,4 @@
-#include "../include/csapp.h"
+#include "../src/csapp.c"
 
 /* trigger delivery of SIGSEGV signal (Linux "Segmentation fault" message) */
 int main() {

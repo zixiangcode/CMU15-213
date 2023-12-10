@@ -1,5 +1,5 @@
 /* $begin select */
-#include "../include/csapp.h"
+#include "../src/csapp.c"
 void echo(int connfd);
 void command(void);
 

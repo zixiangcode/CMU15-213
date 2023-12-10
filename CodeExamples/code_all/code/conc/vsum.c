@@ -2,7 +2,7 @@
  * vsum.c - A simple parallel sum program
  */
 /* $begin vsum */
-#include "../include/csapp.h"
+#include "../src/csapp.c"
 
 #define MAXTHREADS 32    
 #define MAXN 1<<27

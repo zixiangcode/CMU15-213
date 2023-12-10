@@ -1,5 +1,5 @@
 /* $begin waitpid2 */
-#include "../include/csapp.h"
+#include "../src/csapp.c"
 #define N 2
 
 int main() 

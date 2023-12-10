@@ -1,4 +1,4 @@
-#include "../include/csapp.h"
+#include "../src/csapp.c"
 
 #define START 5
 #define END   1<<30

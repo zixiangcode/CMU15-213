@@ -1,4 +1,4 @@
-#include "../include/csapp.h"
+#include "../src/csapp.c"
 
 /* trigger delivery of SIGFPE signal (Linux "Floating exception" message) */
 int main() {

@@ -1,5 +1,5 @@
 /* $begin hex2dd */
-#include "../include/csapp.h"
+#include "../src/csapp.c"
 
 int main(int argc, char **argv) 
 {

@@ -1,5 +1,5 @@
 /* $begin counterprob */
-#include "../include/csapp.h"
+#include "../src/csapp.c"
 
 int counter = 0;
 

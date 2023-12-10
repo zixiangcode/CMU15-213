@@ -2,7 +2,7 @@
  * echoserverp.c - A concurrent echo server based on processes
  */
 /* $begin echoserverpmain */
-#include "../include/csapp.h"
+#include "../src/csapp.c"
 void echo(int connfd);
 
 void sigchld_handler(int sig) //line:conc:echoserverp:handlerstart

@@ -2,7 +2,7 @@
  * echo - read and echo text lines until client closes connection
  */
 /* $begin echo */
-#include "../include/csapp.h"
+#include "../src/csapp.c"
 
 void echo(int connfd) 
 {

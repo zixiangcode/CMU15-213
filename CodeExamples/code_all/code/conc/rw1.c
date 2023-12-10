@@ -2,7 +2,7 @@
  * Readers-writers solution with weak reader priority
  * From Courtois et al, CACM, 1971.
 */
-#include "../include/csapp.h"
+#include "../src/csapp.c"
 
 /* $begin reader1 */
 /* Global variables */

@@ -1,4 +1,4 @@
-#include "../include/csapp.h"
+#include "../src/csapp.c"
 
 pid_t getpgid(pid_t pid);
 

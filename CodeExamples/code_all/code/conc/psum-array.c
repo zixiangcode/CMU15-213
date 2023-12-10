@@ -2,7 +2,7 @@
  * psum-array.c - A simple parallel sum program where each thread sums
  *                into its own distinct global array element.
  */
-#include "../include/csapp.h"
+#include "../src/csapp.c"
 #define MAXTHREADS 32    
 
 void *sum_array(void *vargp); /* Thread routine */

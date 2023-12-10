@@ -1,5 +1,5 @@
 /* $begin sbufc */
-#include "../include/csapp.h"
+#include "../src/csapp.c"
 #include "sbuf.h"
 
 /* Create an empty, bounded, shared FIFO buffer with n slots */

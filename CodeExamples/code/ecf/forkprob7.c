@@ -1,5 +1,5 @@
 /* $begin forkprob7 */
-#include "../include/csapp.h"
+#include "../src/csapp.c"
 int counter = 1;
 
 int main() 

@@ -1,4 +1,4 @@
-#include "../include/csapp.h"
+#include "../src/csapp.c"
 
 /* $begin forkprob8 */
 void foo(int n) 

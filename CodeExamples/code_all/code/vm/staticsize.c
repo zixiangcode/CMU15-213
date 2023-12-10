@@ -1,5 +1,5 @@
 /* $begin staticsize */
-#include "../include/csapp.h"
+#include "../src/csapp.c"
 #define MAXN 15213
 
 int array[MAXN];

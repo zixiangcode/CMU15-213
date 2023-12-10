@@ -2,7 +2,7 @@
  * prodconsn.c - generic producers-consumers manipulating a shared buffer 
  */
 /* $begin prodconsnmain */
-#include "../include/csapp.h"
+#include "../src/csapp.c"
 #include "sbuf.h"
 
 #define NITEMS   5  /* Number of items to produce/consume */

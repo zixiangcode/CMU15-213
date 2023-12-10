@@ -1,5 +1,5 @@
 /* $begin cpstdin */
-#include "../include/csapp.h"
+#include "../src/csapp.c"
 
 int main(void) 
 {

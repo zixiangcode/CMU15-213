@@ -1,5 +1,5 @@
 /* $begin setjmp */
-#include "../include/csapp.h"
+#include "../src/csapp.c"
 
 jmp_buf buf;
 

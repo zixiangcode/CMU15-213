@@ -1,5 +1,5 @@
 /* $begin sigint */
-#include "../include/csapp.h"
+#include "../src/csapp.c"
 
 void sigint_handler(int sig) /* SIGINT handler */   //line:ecf:sigint:beginhandler
 {

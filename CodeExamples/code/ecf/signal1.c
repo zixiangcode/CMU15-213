@@ -1,4 +1,4 @@
-#include "../include/csapp.h"
+#include "../src/csapp.c"
 /* $begin signal1 */
 /* WARNING: This code is buggy! */
 

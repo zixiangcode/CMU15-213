@@ -1,5 +1,5 @@
 /* $begin sharing */
-#include "../include/csapp.h"
+#include "../src/csapp.c"
 #define N 2
 void *thread(void *vargp);
 

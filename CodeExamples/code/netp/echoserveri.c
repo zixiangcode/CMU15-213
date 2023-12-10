@@ -2,7 +2,7 @@
  * echoserveri.c - An iterative echo server 
  */ 
 /* $begin echoserverimain */
-#include "../include/csapp.h"
+#include "../src/csapp.c"
 
 void echo(int connfd);
 

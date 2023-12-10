@@ -1,4 +1,4 @@
-#include "../include/csapp.h"
+#include "../src/csapp.c"
 
 /* $begin fork2 */
 /* $begin wasidefork2 */

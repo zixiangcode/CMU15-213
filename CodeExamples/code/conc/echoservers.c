@@ -2,7 +2,7 @@
  * echoservers.c - A concurrent echo server based on select
  */
 /* $begin echoserversmain */
-#include "../include/csapp.h"
+#include "../src/csapp.c"
 
 typedef struct { /* Represents a pool of connected descriptors */ //line:conc:echoservers:beginpool
     int maxfd;        /* Largest descriptor in read_set */   

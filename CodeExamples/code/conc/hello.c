@@ -2,7 +2,7 @@
  * hello.c - Pthreads "hello, world" program 
  */
 /* $begin hello */
-#include "../include/csapp.h"
+#include "../src/csapp.c"
 void *thread(void *vargp);                    //line:conc:hello:prototype
 
 int main()                                    //line:conc:hello:main

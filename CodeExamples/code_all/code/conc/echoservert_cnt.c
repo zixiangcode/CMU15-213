@@ -3,7 +3,7 @@
  * a thread-safe version of echo() that counts the cumulative number
  * of bytes received by all threads from clients. 
  */
-#include "../include/csapp.h"
+#include "../src/csapp.c"
 
 void echo_cnt(int connfd);
 void *thread(void *vargp);

@@ -4,7 +4,7 @@
  * Usage: shell [-v]
  *    -v: verbose
  */
-#include "../include/csapp.h"
+#include "../src/csapp.c"
 
 #define MAXARGS   128
 #define MAXJOBS    16

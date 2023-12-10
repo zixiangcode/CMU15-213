@@ -1,4 +1,4 @@
-#include "../include/csapp.h"
+#include "../src/csapp.c"
 
 /* $begin signal2 */
 void handler2(int sig) 

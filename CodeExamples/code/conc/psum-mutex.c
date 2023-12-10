@@ -3,7 +3,7 @@
  *                into a global variable protected by a mutex
  */
 /* $begin psummutex */
-#include "../include/csapp.h"
+#include "../src/csapp.c"
 #define MAXTHREADS 32    
 
 void *sum_mutex(void *vargp); /* Thread routine */

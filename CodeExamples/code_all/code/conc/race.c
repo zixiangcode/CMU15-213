@@ -3,7 +3,7 @@
  */
 /* $begin race */
 /* WARNING: This code is buggy! */
-#include "../include/csapp.h"
+#include "../src/csapp.c"
 #define N 4
 
 void *thread(void *vargp);

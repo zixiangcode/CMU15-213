@@ -1,5 +1,5 @@
 /* $begin shellmain */
-#include "../include/csapp.h"
+#include "../src/csapp.c"
 #define MAXARGS   128
 
 /* Function prototypes */

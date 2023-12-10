@@ -1,5 +1,5 @@
 /* $begin sigsuspend */
-#include "../include/csapp.h"
+#include "../src/csapp.c"
 
 volatile sig_atomic_t pid;
 

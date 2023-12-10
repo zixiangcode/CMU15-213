@@ -1,5 +1,5 @@
 /* $begin forkprob5 */
-#include "../include/csapp.h"
+#include "../src/csapp.c"
 
 void doit() 
 {
