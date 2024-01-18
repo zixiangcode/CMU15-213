@@ -26,7 +26,7 @@
 void unix_error(char *msg) /* Unix-style error */
 {
     fprintf(stderr, "%s: %s\n", msg, strerror(errno));
-    exit(0);
+    exit(1);
 }
 /* $end unixerror */
 
@@ -45,7 +45,7 @@ void gai_error(int code, char *msg) /* Getaddrinfo-style error */
 void app_error(char *msg) /* Application error */
 {
     fprintf(stderr, "%s\n", msg);
-    exit(0);
+    exit(1);
 }
 /* $end errorfuns */
 
@@ -69,7 +69,9 @@ pid_t Fork(void) {
 /* $end forkwrapper */
 
 void Execve(const char *filename, char *const argv[], char *const envp[]) {
-    if (execve(filename, argv, envp) < 0) unix_error("Execve error");
+    if (execve(filename, argv, envp) < 0)
+        // unix_error("Execve error");
+        printf("%s: Command not found\n", argv[0]);
 }
 
 /* $begin wait */
@@ -800,7 +802,7 @@ int open_clientfd(char *hostname, char *port) {
         if (connect(clientfd, p->ai_addr, p->ai_addrlen) != -1)
             break; /* Success */
         Close(clientfd);
-            /* Connect failed, try another */  // line:netp:openclientfd:closefd
+        /* Connect failed, try another */  // line:netp:openclientfd:closefd
     }
 
     /* Clean up */
